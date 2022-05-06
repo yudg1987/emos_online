@@ -74,11 +74,11 @@ public class CheckinServiceImpl implements CheckinService {
     @Autowired
     private FaceVerifyService faceVerifyService;
 
-    @Value("${emos.face.checkinUrl}")
-    private String checkinUrl;
+    /*@Value("${emos.face.checkinUrl}")
+    private String checkinUrl;*/
 
-    @Value("${emos.face.createFaceModelUrl}")
-    private String createFaceModelUrl;
+    /*@Value("${emos.face.createFaceModelUrl}")
+    private String createFaceModelUrl;*/
     @Value("${emos.mail.hr}")
     private String hrEmail;
     @Autowired
