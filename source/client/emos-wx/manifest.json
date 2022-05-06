@@ -1,7 +1,7 @@
 {
-    "name" : "emos-wx",
+    "name" : "智慧办公",
     "appid" : "__UNI__C840C05",
-    "description" : "",
+    "description" : "智慧办公",
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "transformPx" : false,
@@ -50,7 +50,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wx2847538d05e183bd",
         "setting" : {
             "urlCheck" : false
         },

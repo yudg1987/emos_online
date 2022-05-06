@@ -46,8 +46,8 @@ spring:
     mongodb:
       host: 106.13.6.212
       port: 27017
-      database: admin
-      authentication-database: admin
+      database: admin1
+      authentication-database: admin2
       username: root
       password: 12345678
 
@@ -94,8 +94,8 @@ emos:
 
 #微信参数配置
 wx:
-  app-id: 
-  app-secret: 
+  app-id: wx2847538d05e183bd
+  app-secret: 8db43a09122e446c163a2552272bc16e
 
 
 tencentcloud:

@@ -5,7 +5,7 @@
 		</uni-popup>
 
 		<swiper class="swiper" circular="true" interval="8000" duration="1000">
-			<swiper-item>
+			<!-- <swiper-item>
 				<image mode="widthFix" src="https://xxx/swiper-1.jpg"></image>
 			</swiper-item>
 			<swiper-item>
@@ -19,6 +19,12 @@
 			</swiper-item>
 			<swiper-item>
 				<image mode="widthFix" src="https://xxx/swiper-5.jpg"></image>
+			</swiper-item> -->
+			<swiper-item>
+				<image mode="widthFix" src="../../static/swipper-1.jpg"></image>
+			</swiper-item>
+			<swiper-item>
+				<image mode="widthFix" src="../../static/swipper-2.png"></image>
 			</swiper-item>
 		</swiper>
 		<view v-show="unreadRows > 0" class="notify-container" @tap="toPage('消息提醒', '/pages/message_list/message_list')">
