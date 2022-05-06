@@ -14,7 +14,7 @@
  Date: 16/04/2021 09:50:59
 */
 
-SET NAMES utf8mb4;
+SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
@@ -288,16 +288,16 @@ CREATE TABLE `tb_dept` (
 DROP TABLE IF EXISTS `tb_employee`;
 CREATE TABLE `tb_employee` (
   `code` int unsigned NOT NULL AUTO_INCREMENT COMMENT '注册码',
-  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '姓名',
-  `tel` char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '电话',
-  `email` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '邮箱',
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '姓名',
+  `tel` char(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '电话',
+  `email` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '邮箱',
   `hiredate` date NOT NULL COMMENT '入职日期',
   `role` json NOT NULL COMMENT '角色',
   `dept_id` int NOT NULL COMMENT '部门id',
   `sex` enum('男','女') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '男' COMMENT '性别',
   `state` tinyint NOT NULL DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- ----------------------------
 -- Table structure for tb_face_model
@@ -359,7 +359,7 @@ CREATE TABLE `tb_meeting_approval` (
   `members` json NOT NULL COMMENT '需要审批的人元列表',
   `approvals` json DEFAULT NULL COMMENT '已经审批的人员列表',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- ----------------------------
 -- Table structure for tb_module

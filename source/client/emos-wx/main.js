@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App'
 
 Vue.config.productionTip = false
-var baseUrl = "http://127.0.0.1:8088/emos-wx-api"
+var baseUrl = "http://127.0.0.1:996/emos-wx-api"
 
  
 Vue.prototype.config = {
