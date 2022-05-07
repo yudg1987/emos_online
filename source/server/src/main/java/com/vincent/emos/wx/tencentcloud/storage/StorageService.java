@@ -23,8 +23,8 @@ import java.util.List;
 @Scope("prototype")
 public class StorageService extends TencentService {
 
-    private static final String BUCK_REGION = "ap-beijing";
-    private static final String BUCK_NAME = "emos-1304799125";
+    private static final String BUCK_REGION = "ap-nanjing";
+    private static final String BUCK_NAME = "zhbg-1311765227";
 
     private COSClient cosClient;
 
@@ -54,7 +54,7 @@ public class StorageService extends TencentService {
 // 设置bucket名称
         listObjectsRequest.setBucketName(BUCK_NAME);
 // prefix表示列出的object的key以prefix开始
-        listObjectsRequest.setPrefix("doc/");
+        //listObjectsRequest.setPrefix("doc/");
 // deliter表示分隔符, 设置为/表示列出当前目录下的object, 设置为空表示列出所有的object
         listObjectsRequest.setDelimiter("/");
 // 设置最大遍历出多少个对象, 一次listobject最大支持1000

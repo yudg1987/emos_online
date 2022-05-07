@@ -21,10 +21,16 @@
 				<image mode="widthFix" src="https://xxx/swiper-5.jpg"></image>
 			</swiper-item> -->
 			<swiper-item>
-				<image mode="widthFix" src="../../static/swipper-1.jpg"></image>
+				<image mode="widthFix" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJruxaARh8KAAAdGOcemSk658.png"></image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix" src="../../static/swipper-2.png"></image>
+				<image mode="widthFix" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJzcVCAUgDXAAoLKYtTQaA414.jpg"></image>
+			</swiper-item>
+			<swiper-item>
+				<image mode="widthFix" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJzcy-AQGXQAAFAyBs42Io601.jpg"></image>
+			</swiper-item>
+			<swiper-item>
+				<image mode="widthFix" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJstzyAVw_mAAAdGOcemSk816.png"></image>
 			</swiper-item>
 		</swiper>
 		<view v-show="unreadRows > 0" class="notify-container" @tap="toPage('消息提醒', '/pages/message_list/message_list')">

@@ -18,7 +18,7 @@ public class TencentService {
     @Value("${tencentcloud.facelib-id}")
     public String FACE_LIBRARY_ID = "";
 
-    public String DEFAULT_REGION = "ap-beijing";
+    public String DEFAULT_REGION = "ap-nanjing";
 
     @Value("${tencentcloud.facelib-name}")
     public String FACE_LIBRARY_NAME = "";

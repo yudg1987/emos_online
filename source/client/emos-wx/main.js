@@ -2,7 +2,8 @@ import Vue from 'vue'
 import App from './App'
 
 Vue.config.productionTip = false
-var baseUrl = "http://127.0.0.1:996/emos-wx-api"
+ var baseUrl = "http://10.1.117.18:996/emos-wx-api"
+//var baseUrl = "http://106.13.6.212:996/emos-wx-api"
 
  
 Vue.prototype.config = {
@@ -10,7 +11,7 @@ Vue.prototype.config = {
 }
 
 Vue.prototype.url = {
-	documentBaseUrl:'https://xxx/',
+	documentBaseUrl:'https://zhbg-1311765227.cos.ap-nanjing.myqcloud.com/',
 	reigster: baseUrl + '/user/register',
 	login: baseUrl + '/user/login',
 	updateUserInfo: baseUrl + '/user/updateUserInfo',
