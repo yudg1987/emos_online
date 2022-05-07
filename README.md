@@ -112,6 +112,16 @@ db.createUser({
     }]
 
 })
+
+db.createUser({
+    user:"emos",
+    pwd:"emos",
+    roles:[{
+        role:"root",
+        db:"admin"
+    }]
+
+})
 ```
 
 ### 3.Redis
