@@ -2,12 +2,12 @@ import Vue from 'vue'
 import App from './App'
 
 Vue.config.productionTip = false
- var baseUrl = "http://localhost:996/emos-wx-api"
-//var baseUrl = "http://106.13.6.212:996/emos-wx-api"
+//var baseUrl = "http://localhost:996/emos-wx-api"
+var baseUrl = "http://124.221.192.169:996/emos-wx-api"
 
  
 Vue.prototype.config = {
-	qqMapSdkKey: 'yourQQMapkey'
+	qqMapSdkKey: 'ZBABZ-S5LKO-AQAWR-SNHUD-V3AQS-MSBMB'
 }
 
 Vue.prototype.url = {

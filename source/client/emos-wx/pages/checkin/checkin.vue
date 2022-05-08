@@ -89,6 +89,7 @@
 								location: {
 									latitude: latitude,
 									longitude: longitude
+									//key : ZBABZ-S5LKO-AQAWR-SNHUD-V3AQS-MSBMB
 								},
 								success: function(resp) {
 									console.log(resp.result)

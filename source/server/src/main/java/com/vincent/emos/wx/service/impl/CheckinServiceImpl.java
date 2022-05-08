@@ -161,6 +161,7 @@ public class CheckinServiceImpl implements CheckinService {
 
                     try {
                         String url = "http://m." + cityCode + ".bendibao.com/news/yqdengji/?qu=" + form.getDistrict();
+                        log.info("获取风险等级url:{}",url);
                         Document document = Jsoup.connect(url).get();
                         Elements elements = document.getElementsByClass("list-detail");
                         for (Element element : elements) {
