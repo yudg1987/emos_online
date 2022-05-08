@@ -16,7 +16,7 @@ public class TencentService {
     public String SECRET_KEY = "";
 
     @Value("${tencentcloud.facelib-id}")
-    public String FACE_LIBRARY_ID = "";
+    public String FACE_LIBRARY_ID = "1000";
 
     public String DEFAULT_REGION = "ap-nanjing";
 

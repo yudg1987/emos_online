@@ -97,9 +97,9 @@ wx:
   app-id: wx2847538d05e183bd
   app-secret: 93116ab650852efe104c979cc20827d4
 
-
+###以下参数需要在https://console.cloud.tencent.com/aiface/verify-face/stat 人脸验证控制台查看
 tencentcloud:
   secrect-id: AKIDCDxReaFdka8QRBdojNkpeCUVFiupSpvj
   secrect-key: YqqZ1C6i37uQfdKktkLfiUyB7l8E3aqq
-  facelib-id: 
-  facelib-name: 
+  facelib-id: 1000
+  facelib-name: 在线办公

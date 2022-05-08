@@ -146,7 +146,9 @@ public class CheckinServiceImpl implements CheckinService {
         }
         boolean isFaceExist = faceLibraryService.checkUserFaceExistById(userId);
         if (!isFaceExist) {
-            throw new EmosException("不存在人脸模型");
+            //throw new EmosException("不存在人脸模型");
+        	log.info("人脸模型不存在，执行添加操作！");
+        	createFaceModel(userId, path);
         } else {
             // 腾讯云人脸识别
             boolean isVerify = faceVerifyService.verify(userId,Imagebase64.byteConverterBASE64(FileUtil.file(path)));
@@ -218,7 +220,7 @@ public class CheckinServiceImpl implements CheckinService {
 
         TbUser user =  tbUserDao.searchById(userId);
         String image = Imagebase64.byteConverterBASE64(FileUtil.file(path));
-        faceLibraryService.createFaceModel(userId,user.getNickname(),image);
+        faceLibraryService.createFaceModel(userId,user.getName(),image);
 
 //        HttpRequest request = HttpUtil.createPost(createFaceModelUrl);
 //        request.form("photo", FileUtil.file(path));

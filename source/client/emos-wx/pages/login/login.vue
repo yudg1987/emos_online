@@ -23,6 +23,13 @@
 			let code =	uni.getStorageSync('code')
 			if(code != null && code.length > 0){
 				this.login()
+			}else{
+				uni.hideLoading();
+				uni.showToast({
+					icon: 'none',
+					title: '无邀请码不能登录，请联系管理员'
+				})
+				
 			}
 		},
 		methods: { 
