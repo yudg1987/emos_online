@@ -13,7 +13,7 @@
 						<view class="title">{{detail.tel}}</view>
 						<view class="des">手机</view>
 					</view>
-					<image class="icon" src="../../static/call.png" mode="widthFix"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2ZHuAey0iAAAMRP4EiJM905_big.png" mode="widthFix"></image>
 				</view>
 				<view class="item">
 					<view class="left">

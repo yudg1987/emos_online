@@ -80,7 +80,7 @@
 
 	.search {
 
-		background-image: url(../../static/search.png) no-repeat 0 center;
+		background-image: url(http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZruABrgOAAAHfnUq6c4502_big.png) no-repeat 0 center;
 		height: 60rpx;
 		border: 1px solid #EEEEEE;
 		color: #BDBDBD;

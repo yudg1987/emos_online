@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<uni-list>
-			<uni-list-item thumb="../../static/document.png" v-for="one in fileList" :note="one.fileSize" :title="one.key"
+			<uni-list-item thumb="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2ZGaAJdFPAAADkrg68qA248_big.png" v-for="one in fileList" :note="one.fileSize" :title="one.key"
 			 :showArrow='true' clickable @click="onClick(one)">
 			</uni-list-item>
 		</uni-list>

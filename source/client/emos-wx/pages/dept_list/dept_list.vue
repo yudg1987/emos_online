@@ -3,7 +3,7 @@
 		<view class="list">
 			<view class="item" v-for="one in list" :key="one.id" @longpress="deleteDept(one.id, one.deptName)" @tap="editDept(one.id,one.deptName)">
 				<text class="key">{{ one.deptName }}</text>
-				<image src="../../static/icon-2.png" mode="widthFix" class="icon"></image>
+				<image src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2ZEeARgB5AAAHpq6Bgg4639_big.png" mode="widthFix" class="icon"></image>
 			</view>
 		</view>
 		<button class="btn" @tap="insertDept" v-if="checkPermission(['ROOT', 'DEPT:INSERT'])">添加</button>

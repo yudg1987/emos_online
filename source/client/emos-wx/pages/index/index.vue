@@ -35,56 +35,56 @@
 		</swiper>
 		<view v-show="unreadRows > 0" class="notify-container" @tap="toPage('消息提醒', '/pages/message_list/message_list')">
 			<view class="notify-title">
-				<image class="notify-icon" src="../../static/icon-1.png" mode="widthFix"></image>
+				<image class="notify-icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2Yq6AIL7TAAAJsMRTHwA166_big.png" mode="widthFix"></image>
 				消息提醒
 			</view>
 			<view class="notify-content">
 				你有{{unreadRows}}条未读消息
 			</view>
-			<image class="more-icon" src="../../static/icon-2.png" mode="widthFix"></image>
+			<image class="more-icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YsCAYy1IAAAHpq6Bgg4618_big.png" mode="widthFix"></image>
 		</view>
 		<view class="nav-container">
 			<view class="nav-row">
 
 				<view class="nav">
-					<image class="icon" src="../../static/nav-1.png" mode="widthFix" @tap="toPage('在线签到','../checkin/checkin')"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YMWAEhmdAAAJsCXhCqA337_big.png" mode="widthFix" @tap="toPage('在线签到','../checkin/checkin')"></image>
 					<text class="name">在线签到</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="../../static/nav-2.png" mode="widthFix"  @tap="toPage('员工健康','../healthy/healthy')"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YViAMSMwAAATG4dt2lw495_big.png" mode="widthFix"  @tap="toPage('员工健康','../healthy/healthy')"></image>
 					<text class="name">员工健康</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="../../static/nav-3.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YXWATEZyAAAWzkBeCvg513_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">在线请假</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="../../static/nav-4.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YYiADeHxAAAQO8hZ4bQ882_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">公务出差</text>
 				</view>
 			</view>
 
 			<view class="nav-row">
 				<view class="nav">
-					<image class="icon" src="../../static/nav-5.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YZ2AbP-xAAAKL9Sc5SQ513_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">员工日报</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="../../static/nav-6.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YbaASFx1AAATqm3m7Z8276_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">我的加班</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="../../static/nav-7.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YcmAef6fAAAUJ2DepAk367_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">付款申请</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="../../static/nav-8.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YduAOmEaAAAWuZlC9Yg319_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">费用报销</text>
 				</view>
 			</view>
@@ -93,22 +93,22 @@
 			<view class="nav-row">
 
 				<view class="nav">
-					<image class="icon" src="../../static/nav-9.png" mode="widthFix" @tap="toPage('公告通知', '/pages/message_list/message_list')"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YfqANYRNAAAM1RrMcUc878_big.png" mode="widthFix" @tap="toPage('公告通知', '/pages/message_list/message_list')"></image>
 					<text class="name">公告通知</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="../../static/nav-10.png" mode="widthFix" @tap="toPage('在线审批','../approval_list/approval_list')"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2Yg2ALRCKAAAKmTdZ2hI217_big.png" mode="widthFix" @tap="toPage('在线审批','../approval_list/approval_list')"></image>
 					<text class="name">在线审批</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="../../static/nav-11.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YiGARgdZAAAKbDy9n3E731_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">物品领用</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="../../static/nav-12.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YjWAUqg1AAAL8UBBpBM103_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">采购审批</text>
 				</view>
 			</view>
@@ -125,11 +125,11 @@
 					<text class="hours">时长：{{ one.hour == 0 ? 1 : one.hour }}小时</text>
 				</view>
 				<view class="row">
-					<image src="../../static/icon-3.png" mode="widthFix" class="icon"></image>
+					<image src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YtWAZpnYAAADAtk88go263_big.png" mode="widthFix" class="icon"></image>
 					<text class="desc" space="emsp">日期：{{ one.date }} {{ one.start }}</text>
 				</view>
 				<view class="row">
-					<image src="../../static/icon-4.png" mode="widthFix" class="icon"></image>
+					<image src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YumAPEXZAAAFlbvE_go826_big.png" mode="widthFix" class="icon"></image>
 					<text class="desc">地点：{{ one.type == '线上会议' ? one.type : one.place }}</text>
 				</view>
 				<image :src="one.photo" class="photo"></image>

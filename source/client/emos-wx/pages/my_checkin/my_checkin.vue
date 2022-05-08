@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
 		<view class="statistics">
-			<image src="../../static/big-icon-1.png" mode="widthFix" class="big-icon"></image>
+			<image src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZluAKETpAAEI4MK_ziQ130_big.png" mode="widthFix" class="big-icon"></image>
 			<view class="report-title">
 				<text class="days">{{sum_1}}</text>
 				<text class="unit">天</text>
