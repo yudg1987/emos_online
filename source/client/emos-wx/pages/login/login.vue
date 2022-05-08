@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<image class="logo" src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZP6AQ-s0AAFmwz9Wo68928_big.png" mode="widthFix"></image>
-		<view class="logo-title">EMOS在线办公系统</view>
+		<view class="logo-title">智慧办公</view>
 		<view class="logo-subtitle">v1.0.0</view>
 		<button class="login-btn" open-type="getUserInfo" @tap="login()">登录系统</button>
 		<view class="register-container">
