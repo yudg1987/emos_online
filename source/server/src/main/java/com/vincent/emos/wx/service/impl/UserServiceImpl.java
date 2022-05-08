@@ -31,190 +31,194 @@ import java.util.*;
 @Scope("prototype")
 public class UserServiceImpl implements UserService {
 
-    public static final String ROOT_REGISTER_CODE = "1000";
+	public static final String ROOT_REGISTER_CODE = "1000";
 
-    @Value("${wx.app-id}")
-    private String wxAppId;
+	@Value("${wx.app-id}")
+	private String wxAppId;
 
-    @Value("${wx.app-secret}")
-    private String wxApSecret;
+	@Value("${wx.app-secret}")
+	private String wxApSecret;
 
-    @Autowired
-    private TbUserDao userDao;
+	@Autowired
+	private TbUserDao userDao;
 
+	@Autowired
+	private MessageTask messageTask;
+	@Autowired
+	private TbDeptDao deptDao;
 
-    @Autowired
-    private MessageTask messageTask;
-    @Autowired
-    private TbDeptDao  deptDao;
+	private String getOpenId(String code) {
+		String url = "https://api.weixin.qq.com/sns/jscode2session";
+		HashMap map = new HashMap();
+		map.put("appid", wxAppId);
+		map.put("secret", wxApSecret);
+		map.put("js_code", code);
+		map.put("grant_type", "authorization_code");
+		String response = HttpUtil.post(url, map);
+		JSONObject json = JSONUtil.parseObj(response);
+		String openId = json.getStr("openid");
+		if (openId == null || openId.length() == 0) {
+			throw new RuntimeException("临时登陆凭证错误");
+		}
+		return openId;
+	}
 
-    private String getOpenId(String code) {
-        String url = "https://api.weixin.qq.com/sns/jscode2session";
-        HashMap map = new HashMap();
-        map.put("appid", wxAppId);
-        map.put("secret", wxApSecret);
-        map.put("js_code", code);
-        map.put("grant_type", "authorization_code");
-        String response = HttpUtil.post(url, map);
-        JSONObject json = JSONUtil.parseObj(response);
-        String openId = json.getStr("openid");
-        if (openId == null || openId.length() == 0) {
-            throw new RuntimeException("临时登陆凭证错误");
-        }
-        return openId;
-    }
+	@Override
+	public int registerUser(String registerCode, String code, String nickName, String photo, TbEmployee employee) {
 
-    @Override
-    public int registerUser(String registerCode, String code, String nickName, String photo, TbEmployee employee) {
+		String openId = getOpenId(code);
+		// openid已注册提示不能重复注册
+		Integer existUserId = userDao.searchIdByOpenId(openId);
+		if (null != existUserId || existUserId > 0) {
+			throw new RuntimeException("邀请码:" + registerCode + "已经注册过,请直接登录！");
+		}
+		if (registerCode.equals(ROOT_REGISTER_CODE)) {
 
-        String openId = getOpenId(code);
-        if (registerCode.equals(ROOT_REGISTER_CODE)) {
+			boolean hasRootUser = userDao.haveRootUser();
+			if (!hasRootUser) {
+				// 注册管理员
+				TbUser user = getUserEntity(true, openId, code, nickName, photo, employee);
+				userDao.insertUser(user);
+				int id = user.getId();
 
-            boolean hasRootUser = userDao.haveRootUser();
-            if (!hasRootUser) {
-                //注册管理员
-                TbUser user = getUserEntity(true, openId, code, nickName, photo,employee);
-                userDao.insertUser(user);
-                int id = user.getId();
+				MessageEntity entity = new MessageEntity();
+				entity.setSenderId(0);
+				entity.setSenderName("系统消息");
+				entity.setUuid(IdUtil.simpleUUID());
+				entity.setMsg("欢迎您注册成为超级管理员，请及时更新您的员工个人信息");
+				entity.setSendTime(new Date());
 
-                MessageEntity entity = new MessageEntity();
-                entity.setSenderId(0);
-                entity.setSenderName("系统消息");
-                entity.setUuid(IdUtil.simpleUUID());
-                entity.setMsg("欢迎您注册成为超级管理员，请及时更新您的员工个人信息");
-                entity.setSendTime(new Date());
+				messageTask.sendAsync(id + "", entity);
 
-               messageTask.sendAsync(id + "", entity);
+			} else {
+				throw new EmosException("创建超级管理员失败");
+			}
+		} else {
+			TbUser user = getUserEntity(false, openId, code, nickName, photo, employee);
+			userDao.insertUser(user);
+			int userId = user.getId();
+			MessageEntity entity = new MessageEntity();
+			entity.setSenderId(0);
+			entity.setSenderName("系统消息");
+			entity.setUuid(IdUtil.simpleUUID());
+			entity.setMsg("欢迎来到emos，请及时更新您的员工个人信息");
+			entity.setSendTime(new Date());
+			messageTask.sendAsync(userId + "", entity);
 
-            } else {
-                throw new EmosException("创建超级管理员失败");
-            }
-        } else {
-            TbUser user = getUserEntity(false, openId, code, nickName, photo,employee);
-            userDao.insertUser(user);
-            int userId = user.getId();
-            MessageEntity entity = new MessageEntity();
-            entity.setSenderId(0);
-            entity.setSenderName("系统消息");
-            entity.setUuid(IdUtil.simpleUUID());
-            entity.setMsg("欢迎来到emos，请及时更新您的员工个人信息");
-            entity.setSendTime(new Date());
-           messageTask.sendAsync(userId + "", entity);
+		}
+		return userDao.searchIdByOpenId(openId);
+	}
 
+	@Override
+	public Set<String> searchUserPermissions(int userId) {
+		return userDao.searchUserPermissions(userId);
+	}
 
-        }
-        return userDao.searchIdByOpenId(openId);
-    }
+	@Override
+	public Integer login(String code) {
+		String openId = getOpenId(code);
+		Integer id = userDao.searchIdByOpenId(openId);
+		// 接收消息
+		messageTask.receiverAsync(id + "");
+		if (id == null) {
+			throw new EmosException("账户不存在");
+		}
+		return id;
+	}
 
-    @Override
-    public Set<String> searchUserPermissions(int userId) {
-        return userDao.searchUserPermissions(userId);
-    }
+	@Override
+	public TbUser searchById(int userId) {
+		return userDao.searchById(userId);
+	}
 
-    @Override
-    public Integer login(String code) {
-        String openId = getOpenId(code);
-        Integer id = userDao.searchIdByOpenId(openId);
-        //接收消息
-        messageTask.receiverAsync(id + "");
-        if (id == null) {
-            throw new EmosException("账户不存在");
-        }
-        return id;
-    }
+	@Override
+	public String searchUserHireDate(int userId) {
+		return userDao.searchUserHireDate(userId);
+	}
 
-    @Override
-    public TbUser searchById(int userId) {
-        return userDao.searchById(userId);
-    }
+	@Override
+	public HashMap searchUserSummary(int userId) {
+		return userDao.searchUserSummary(userId);
+	}
 
-    @Override
-    public String searchUserHireDate(int userId) {
-        return userDao.searchUserHireDate(userId);
-    }
+	@Override
+	public int updateUserInfo(TbUser user) {
+		return userDao.updateUserInfo(user);
+	}
 
-    @Override
-    public HashMap searchUserSummary(int userId) {
-        return userDao.searchUserSummary(userId);
-    }
+	@Override
+	public ArrayList<HashMap> searchUserGroupByDept(String keyword) {
+		ArrayList<HashMap> list_1 = deptDao.searchDeptMembers(keyword);
+		ArrayList<HashMap> list_2 = deptDao.searchUserGroupByDept(keyword);
+		for (HashMap map_1 : list_1) {
+			long deptId = (long) map_1.get("id");
+			ArrayList members = new ArrayList();
+			for (HashMap map_2 : list_2) {
+				long id = (long) map_2.get("deptId");
+				if (deptId == id) {
+					members.add(map_2);
+				}
+			}
+			map_1.put("members", members);
+		}
 
-    @Override
-    public int updateUserInfo(TbUser user) {
-        return userDao.updateUserInfo(user);
-    }
+		return list_1;
+	}
 
-    @Override
-    public ArrayList<HashMap> searchUserGroupByDept(String keyword) {
-        ArrayList<HashMap> list_1 = deptDao.searchDeptMembers(keyword);
-        ArrayList<HashMap> list_2 = deptDao.searchUserGroupByDept(keyword);
-        for(HashMap map_1: list_1){
-            long deptId = (long) map_1.get("id");
-            ArrayList members =new ArrayList();
-            for(HashMap map_2: list_2){
-                long id = (long) map_2.get("deptId");
-                if(deptId == id){
-                    members.add(map_2);
-                }
-            }
-            map_1.put("members",members);
-        }
+	@Override
+	public ArrayList<HashMap> searchMembers(List param) {
+		return userDao.searchMembers(param);
+	}
 
-        return list_1;
-    }
+	@Override
+	public List<HashMap> selectUserPhotoAndName(List param) {
+		return userDao.selectUserPhotoAndName(param);
+	}
 
-    @Override
-    public ArrayList<HashMap> searchMembers(List param) {
-        return userDao.searchMembers(param);
-    }
+	@Override
+	public TbUser searchUserById(int id) {
+		return userDao.searchById(id);
+	}
 
-    @Override
-    public List<HashMap> selectUserPhotoAndName(List param) {
-        return userDao.selectUserPhotoAndName(param);
-    }
+	@Override
+	public int dimissionEmployee(int id) {
+		return userDao.dimissionEmployee(id);
+	}
 
-    @Override
-    public TbUser searchUserById(int id) {
-        return userDao.searchById(id);
-    }
+	@Override
+	public List<ContactList> searchUserListGroupByDept() {
+		return userDao.searchUserListGroupByDept();
+	}
 
-    @Override
-    public int dimissionEmployee(int id) {
-        return userDao.dimissionEmployee(id);
-    }
+	private HashMap getUserParams(boolean isRootUser, String openId, String code, String nickName, String photo) {
+		HashMap params = new HashMap();
+		params.put("openId", openId);
+		params.put("nickname", nickName);
+		params.put("photo", photo);
+		params.put("role", "[0]");
+		params.put("status", 1);
+		params.put("createTime", new Date());
+		params.put("root", isRootUser);
+		return params;
+	}
 
-    @Override
-    public List<ContactList> searchUserListGroupByDept() {
-        return userDao.searchUserListGroupByDept();
-    }
+	private TbUser getUserEntity(boolean isRootUser, String openId, String code, String nickName, String photo,
+			TbEmployee employee) {
 
-    private HashMap getUserParams(boolean isRootUser, String openId, String code, String nickName, String photo) {
-        HashMap params = new HashMap();
-        params.put("openId", openId);
-        params.put("nickname", nickName);
-        params.put("photo", photo);
-        params.put("role", "[0]");
-        params.put("status", 1);
-        params.put("createTime", new Date());
-        params.put("root", isRootUser);
-        return params;
-    }
-
-    private TbUser getUserEntity(boolean isRootUser, String openId, String code, String nickName, String photo, TbEmployee employee) {
-
-        TbUser user = new TbUser();
-        user.setRoot(isRootUser);
-        user.setOpenId(openId);
-        user.setNickname(nickName);
-        user.setPhoto(photo);
-        user.setCreateTime(new Date());
-        user.setStatus((byte) 1);
-        user.setSex(employee.getSex());
-        user.setName(employee.getName());
-        user.setTel(employee.getTel());
-        user.setEmail(employee.getEmail());
-        user.setDeptId(employee.getDeptId());
-        user.setHiredate(employee.getHiredate());
-        user.setRole(employee.getRole());
-        return user;
-    }
+		TbUser user = new TbUser();
+		user.setRoot(isRootUser);
+		user.setOpenId(openId);
+		user.setNickname(nickName);
+		user.setPhoto(photo);
+		user.setCreateTime(new Date());
+		user.setStatus((byte) 1);
+		user.setSex(employee.getSex());
+		user.setName(employee.getName());
+		user.setTel(employee.getTel());
+		user.setEmail(employee.getEmail());
+		user.setDeptId(employee.getDeptId());
+		user.setHiredate(employee.getHiredate());
+		user.setRole(employee.getRole());
+		return user;
+	}
 }

@@ -55,7 +55,6 @@ public class UserController {
     @PostMapping("/register")
     @ApiOperation("注册用户")
     public R register(@Valid @RequestBody RegisterForm form) {
-
         //获取邀请码
         int code = Integer.parseInt(form.getRegisterCode());
         TbEmployee employee = employeeService.searchByCode(code);
@@ -71,7 +70,7 @@ public class UserController {
             employeeService.updateState(params);
             return R.ok("用户注册成功").put("token", token).put("permission", permissionSet);
         } else {
-            return R.error("注册码不对，请于管理员联系确认");
+            return R.error("注册码不对，请与管理员联系确认");
         }
 
     }

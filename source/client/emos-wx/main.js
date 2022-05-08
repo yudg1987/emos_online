@@ -75,6 +75,7 @@ Vue.prototype.ajax = function(url, method, data, func) {
 		},
 		'data': data,
 		success: function(resp) {
+			console.log('ajax请求成功'+JSON.stringify(resp));
 
 			console.log('11111:' + resp.statusCode + "__" + resp.data.code)
 			if (resp.statusCode == 401) {
@@ -93,10 +94,9 @@ Vue.prototype.ajax = function(url, method, data, func) {
 				}
 				func(resp)
 			} else {
-
 				uni.showToast({
 					icon: 'none',
-					title: resp.data
+					title: resp.data.msg
 				})
 
 			}
