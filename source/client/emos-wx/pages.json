@@ -268,13 +268,22 @@
 		        "enablePullDownRefresh": false
 		    }
 		    
+		},
+		{
+		    "path" : "pages/law/law-detail",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "法律法规详情",
+		        "enablePullDownRefresh": false
+		    }
+		    
 		}
         
     ],
 
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "EMOS系统-翔",
+		"navigationBarTitleText": "智慧办公EMOS",
 		"navigationBarBackgroundColor": "#3474FF",
 		"backgroundColor": "#EEEEF4"
 	},
