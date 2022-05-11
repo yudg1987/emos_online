@@ -4,7 +4,7 @@
 			<uni-popup-message type="success" :message="'接收到' + lastRows + '条消息'" :duration="2000" />
 		</uni-popup>
 
-		<swiper class="swiper" circular="true" interval="8000" duration="1000">
+		<swiper class="swiper" circular="true" interval="2000" duration="1000" autoplay="true" indicator-dots="true">
 			<!-- <swiper-item>
 				<image mode="widthFix" src="https://xxx/swiper-1.jpg"></image>
 			</swiper-item>
@@ -21,16 +21,16 @@
 				<image mode="widthFix" src="https://xxx/swiper-5.jpg"></image>
 			</swiper-item> -->
 			<swiper-item>
-				<image mode="widthFix" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJruxaARh8KAAAdGOcemSk658.png"></image>
+				<image mode="aspectFit" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJruxaARh8KAAAdGOcemSk658.png"></image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJzcVCAUgDXAAoLKYtTQaA414.jpg"></image>
+				<image mode="aspectFit" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJzcVCAUgDXAAoLKYtTQaA414.jpg"></image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJzcy-AQGXQAAFAyBs42Io601.jpg"></image>
+				<image mode="aspectFit" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJzcy-AQGXQAAFAyBs42Io601.jpg"></image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJstzyAVw_mAAAdGOcemSk816.png"></image>
+				<image mode="aspectFit" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJstzyAVw_mAAAdGOcemSk816.png"></image>
 			</swiper-item>
 		</swiper>
 		<view v-show="unreadRows > 0" class="notify-container" @tap="toPage('消息提醒', '/pages/message_list/message_list')">
@@ -111,8 +111,18 @@
 					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YjWAUqg1AAAL8UBBpBM103_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">采购审批</text>
 				</view>
+				<!-- <view class="nav">
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YfqANYRNAAAM1RrMcUc878_big.png" mode="widthFix" @tap="toPage('法律法规', '/pages/law/law')"></image>
+					<text class="name">法律法规</text>
+				</view> -->
 			</view>
-
+			
+			<view class="nav-row">
+				<view class="nav">
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YfqANYRNAAAM1RrMcUc878_big.png" mode="widthFix" @tap="toPage('法律法规', '/pages/law/law')"></image>
+					<text class="name">法律法规</text>
+				</view>
+			</view>
 		</view>
 
 		<view class="calendar-container">

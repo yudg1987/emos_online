@@ -61,7 +61,17 @@ Vue.prototype.url = {
 	updateEmployeeState: baseUrl + '/employee/updateState',
 	searchEmployee: baseUrl + '/employee/searchEmployee',
 	deleteEmployee: baseUrl+'/employee/deleteEmployee',
-	dimissionEmployee:baseUrl+'/user/dimissionEmployee'
+	dimissionEmployee:baseUrl+'/user/dimissionEmployee',
+	getLaw: 'https://t.lawsdata.com/api/compass-front/openApi/miniProgram/law'
+}
+// 法律法规咨询参数
+Vue.prototype.lawData = {
+	appId: '8',
+	key: '5p66IO95rOV5b6L5pyN5Yqh5bmz5Y+w',
+	page:{
+		 pageNo: 1,
+		 pageSize: 10
+	}
 }
 
 
@@ -75,15 +85,16 @@ Vue.prototype.ajax = function(url, method, data, func) {
 		},
 		'data': data,
 		success: function(resp) {
-			console.log('ajax请求成功'+JSON.stringify(resp));
+			//console.log('ajax请求成功'+JSON.stringify(resp));
 
-			console.log('11111:' + resp.statusCode + "__" + resp.data.code)
+			console.log('11111:' + resp.statusCode + "__" + (resp.data.code||resp.data.returnCode))
 			if (resp.statusCode == 401) {
-
+                console.log('401了:')
 				uni.redirectTo({
 					url: '../login/login'
 				});
-			} else if (resp.statusCode == 200 && resp.data.code == 200) {
+			} else if (resp.statusCode == 200 && (resp.data.code == 200 || resp.data.returnCode == 200)) {
+				console.log('200-1了:')
 				let data = resp.data
 				if (data.hasOwnProperty('token')) {
 
@@ -96,7 +107,7 @@ Vue.prototype.ajax = function(url, method, data, func) {
 			} else {
 				uni.showToast({
 					icon: 'none',
-					title: resp.data.msg
+					title: resp.data.msg||resp.data.returnInfo
 				})
 
 			}

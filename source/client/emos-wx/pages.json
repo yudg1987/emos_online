@@ -259,6 +259,15 @@
 		        "enablePullDownRefresh": false
 		    }
 		    
+		},
+		{
+		    "path" : "pages/law/law",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "法律法规",
+		        "enablePullDownRefresh": false
+		    }
+		    
 		}
         
     ],
