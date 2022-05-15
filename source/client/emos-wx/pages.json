@@ -279,6 +279,24 @@
 		    
 		}
         
+        ,{
+            "path" : "pages/instrument/instrument",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "司法案例查询",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/instrument_detail/instrument_detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "案例明细",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 
 	"globalStyle": {

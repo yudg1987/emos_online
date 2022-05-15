@@ -122,6 +122,11 @@
 					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YfqANYRNAAAM1RrMcUc878_big.png" mode="widthFix" @tap="toPage('法律法规', '/pages/law/law')"></image>
 					<text class="name">法律法规</text>
 				</view>
+				
+				<view class="nav">
+					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YiGARgdZAAAKbDy9n3E731_big.png" mode="widthFix" @tap="toPage('司法案例查询', '/pages/instrument/instrument')"></image>
+					<text class="name">司法案例查询</text>
+				</view>
 			</view>
 		</view>
 

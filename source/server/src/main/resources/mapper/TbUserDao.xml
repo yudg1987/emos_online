@@ -183,7 +183,9 @@
             <if test="hiredate!=null">
                 hiredate = #{hiredate},
             </if>
-            role = #{role},
+            <if test="role!=null">
+                role = #{role},
+            </if>
             <if test="deptName!=null">
                 dept_id = ( SELECT id FROM tb_dept WHERE dept_name = #{deptName} ),
             </if>

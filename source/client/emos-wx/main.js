@@ -5,7 +5,7 @@ Vue.config.productionTip = false
 //var baseUrl = "http://localhost:996/emos-wx-api"
 var baseUrl = "http://124.221.192.169:996/emos-wx-api"
 
- 
+// QQ地图定位申请的key 
 Vue.prototype.config = {
 	qqMapSdkKey: 'ZBABZ-S5LKO-AQAWR-SNHUD-V3AQS-MSBMB'
 }
@@ -62,9 +62,10 @@ Vue.prototype.url = {
 	searchEmployee: baseUrl + '/employee/searchEmployee',
 	deleteEmployee: baseUrl+'/employee/deleteEmployee',
 	dimissionEmployee:baseUrl+'/user/dimissionEmployee',
-	getLaw: 'https://t.lawsdata.com/api/compass-front/openApi/miniProgram/law'
+	getLaw: 'https://t.lawsdata.com/api/compass-front/openApi/miniProgram/law',
+	getinstrument:'https://t.lawsdata.com/api/compass-front/openApi/miniProgram/instrument'
 }
-// 法律法规咨询参数
+// 法律法规 案例查询咨询参数
 Vue.prototype.lawData = {
 	appId: '8',
 	key: '5p66IO95rOV5b6L5pyN5Yqh5bmz5Y+w',

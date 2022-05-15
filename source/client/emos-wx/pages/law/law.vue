@@ -3,7 +3,7 @@
 		<view class="head">
 			<view class="search">
 				<view style="display: inline; width: 90%;">
-					<input class="search-word" placeholder="搜索" @confirm='search' v-model="key"></view>
+					<input class="search-word" placeholder="搜索" @confirm='search' v-model="key" @input="clearResult()"></view>
 	
 				<view class="option" @click="cancle">{{optitle}}</view>
 			</view>
@@ -21,7 +21,8 @@
 		data(){
 			return {
 				key:'',
-				result:[]
+				result:[],
+				totalPage: 0
 			}
 		},
 		onShow:function(option){
@@ -29,12 +30,14 @@
 		},
 		methods: {
 			search:function(option) {
-				console.log('search...'+this);
+				//console.log('search...'+this);
 				let data=this.lawData
 				data.text = this.key
 				console.log('data:'+JSON.stringify(data))
 				this.ajax(this.url.getLaw,'POST',data,(res) => {
-					this.result=res.data.returnData.list
+					this.totalPage= res.data.returnData.total
+					//console.log('result',JSON.stringify(res.data.returnData.list));
+					this.result=[...this.result,...res.data.returnData.list]
 				})
 			},
 			onClick:function(one){
@@ -42,7 +45,21 @@
 				uni.navigateTo({
 					url:"./law-detail?one="+JSON.stringify(one)
 				})
-				
+			},
+			clearResult(){
+				this.result=[]
+				this.totalPage=0
+				this.lawData.page.pageNo=1
+			}
+		},
+		onReachBottom:function(){
+			console.log('onReachBottom',this.lawData.page.pageNo,this.totalPage)
+			if(this.lawData.page.pageNo <= this.totalPage){
+				this.lawData.page.pageNo++
+				this.search()
+				console.log(this.result.length)
+			}else{
+				console.log('到达最后一页了',this.totalPage)
 			}
 		}
 	}

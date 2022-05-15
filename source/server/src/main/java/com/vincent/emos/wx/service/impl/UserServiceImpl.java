@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService {
 		String openId = getOpenId(code);
 		// openid已注册提示不能重复注册
 		Integer existUserId = userDao.searchIdByOpenId(openId);
-		if (null != existUserId || existUserId > 0) {
+		if (null != existUserId && existUserId > 0) {
 			throw new RuntimeException("邀请码:" + registerCode + "已经注册过,请直接登录！");
 		}
 		if (registerCode.equals(ROOT_REGISTER_CODE)) {
