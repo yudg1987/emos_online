@@ -192,15 +192,15 @@
 		},
 		onShow: function() {
 			let that = this
-			// that.timer = setInterval(function() {
-			// 	that.ajax(that.url.refreshMessage, 'GET', null, function(resp) {
-			// 		that.unreadRows = resp.data.unreadRows
-			// 		that.lastRows = resp.data.lastRows
-			// 		if (that.lastRows > 0) {
-			// 			uni.$emit('showMessage')
-			// 		}
-			// 	})
-			// }, 5 * 1000)
+			 that.timer = setInterval(function() {
+			 	that.ajax(that.url.refreshMessage, 'GET', null, function(resp) {
+			 		that.unreadRows = resp.data.unreadRows
+			 		that.lastRows = resp.data.lastRows
+			 		if (that.lastRows > 0) {
+			 			uni.$emit('showMessage')
+			 		}
+			 	})
+			 }, 5 * 1000)
 
 			that.meetingPage = 1
 			that.isMeetingLastPage = false

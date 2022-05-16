@@ -2,7 +2,7 @@
 	<view class="page">
 
 		<uni-list>
-			<uni-list-chat v-for="one in list" :title="one.senderName" :avatar="one.senderPhoto" :note="one.msg" badgePositon="left"
+			<uni-list-chat  avatarCircle="true" v-for="(one,index) in list"  :title="one.senderName" :avatar="one.senderPhoto" :note="one.msg" badgePositon="left"
 			 :badge-text="one.readFlag ? '' : 'dot'" :key="one.id" link="navigateTo" :to="'../message_detail/message_detail?id=' + one.id + '&readFlag=' + one.readFlag + '&refId=' + one.refId">
 				<view class="chat-custom-right">
 					<text class="chat-custom-text">{{ one.sendTime }}</text>
@@ -52,8 +52,10 @@
 					length: that.length
 				}
 				ref.ajax(that.url.searchMessageByPage, 'POST', data, function(resp) {
-					let result = resp.data.result
+					let result= resp.data.result
+					console.log('----result---',JSON.stringify(result))
 					if (result == null || result.length == 0) {
+						console.log('----result---1111')
 						ref.isLastPage = true;
 						ref.page = ref.page -1
 						
@@ -63,10 +65,13 @@
 						});
 					}else{
 						if(ref.page ==1){
+							console.log('----result---2222')
 							ref.list = []
 						}
 						ref.list = ref.list.concat(result)
+						console.log('----ref.list---',JSON.stringify(ref.list))
 						if(ref.page > 1){
+							console.log('----result---33333333')
 							uni.showToast({
 								icon:'none',
 								title:'又加载了'+result.length+'条消息'

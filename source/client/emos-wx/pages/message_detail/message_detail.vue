@@ -39,6 +39,7 @@
 			that.id = options.id
 			that.readFlag = options.readFlag == 'true'?true:false
 			that.refId = options.refId
+			console.log('更新已读消息id',options.refId)
 			if(!that.readFlag){
 				
 				that.ajax(that.url.updateUnreadMessage,'POST',{'id':that.refId},function(resp){

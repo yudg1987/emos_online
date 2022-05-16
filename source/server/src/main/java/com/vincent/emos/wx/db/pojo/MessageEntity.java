@@ -18,6 +18,7 @@ public class MessageEntity implements Serializable {
     @Indexed
     private Integer senderId;
     private String senderPhoto="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/System.jpg";
+    //private String senderPhonto="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJruxaARh8KAAAdGOcemSk658.png";
     private String senderName;
     @Indexed
     private Date sendTime;
