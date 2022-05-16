@@ -9,7 +9,7 @@
 			  <view>{{one.court}}</view>
 			</uni-list-item>
 		</uni-list>
-		<view v-if="bottom" class="isOver">------------这里是底部------------</view>
+		<view v-if="lastPage" class="isOver">------------这里是底部------------</view>
 	</view>
 </template>
 
@@ -19,8 +19,7 @@
 			return {
 				key:'',
 				result:[],
-				totalPage: 0,
-				bottom:false
+				lastPage:false
 			}
 		},
 		methods: {
@@ -34,7 +33,7 @@
 				data.text=this.key
 				this.ajax(this.url.getinstrument, 'POST', data, (resp)=>{
 					//console.log('result',JSON.stringify(resp.data.returnData));
-					this.totalPage= resp.data.returnData.total
+					this.lastPage= resp.data.returnData.lastPage
 					this.result=[...this.result , ...resp.data.returnData.list]
 				})
 			},
@@ -46,19 +45,18 @@
 			clearResult(){
 				console.log('clearResult')
 				this.result=[]
-				this.totalPage=0
+				this.lastPage=false
 				this.lawData.page.pageNo=1
 			}
 		},
 		onReachBottom:function(){
-			console.log('onReachBottom',this.lawData.page.pageNo,this.totalPage)
-			if(this.lawData.page.pageNo <= this.totalPage){
+			console.log('onReachBottom',this.lawData.page.pageNo,this.lastPage)
+			if(!this.lastPage){
 				this.lawData.page.pageNo++
 				this.search(false)
 				console.log(this.result.length)
 			}else{
-				console.log('到达最后一页了',this.totalPage)
-				this.bottom=true
+				console.log('到达最后一页了',this.lastPage)
 			}
 		}
 		
