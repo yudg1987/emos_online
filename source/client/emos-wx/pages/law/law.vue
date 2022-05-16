@@ -13,6 +13,7 @@
 			  <view>{{one.effectLevel}}</view>
 			</uni-list-item>
 		</uni-list>
+		<view v-if="lastPage" class="isOver">------------这里是底部------------</view>
 	</view>
 </template>
 
@@ -22,7 +23,7 @@
 			return {
 				key:'',
 				result:[],
-				totalPage: 0
+				lastPage: false
 			}
 		},
 		onShow:function(option){
@@ -35,7 +36,7 @@
 				data.text = this.key
 				console.log('data:'+JSON.stringify(data))
 				this.ajax(this.url.getLaw,'POST',data,(res) => {
-					this.totalPage= res.data.returnData.total
+					this.lastPage= res.data.returnData.lastPage
 					//console.log('result',JSON.stringify(res.data.returnData.list));
 					this.result=[...this.result,...res.data.returnData.list]
 				})
@@ -48,18 +49,18 @@
 			},
 			clearResult(){
 				this.result=[]
-				this.totalPage=0
+				this.lastPage=false
 				this.lawData.page.pageNo=1
 			}
 		},
 		onReachBottom:function(){
-			console.log('onReachBottom',this.lawData.page.pageNo,this.totalPage)
-			if(this.lawData.page.pageNo <= this.totalPage){
+			console.log('onReachBottom',this.lawData.page.pageNo,this.lastPage)
+			if(!this.lastPage){
 				this.lawData.page.pageNo++
 				this.search()
 				console.log(this.result.length)
 			}else{
-				console.log('到达最后一页了',this.totalPage)
+				console.log('到达最后一页了',this.lastPage)
 			}
 		}
 	}
@@ -104,5 +105,11 @@
 		height: 60rpx;
 		color: @background-color;
 		vertical-align: middle;
+	}
+	.isOver{
+		 width: 100%;
+		 height: 100rpx;
+		 line-height: 100rpx;
+		 text-align: center;
 	}
 </style>
