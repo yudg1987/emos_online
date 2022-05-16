@@ -189,8 +189,13 @@
             <if test="deptName!=null">
                 dept_id = ( SELECT id FROM tb_dept WHERE dept_name = #{deptName} ),
             </if>
-            dept_id= #{deptId},
-            status = #{status}
+            
+            <if test="deptId!=null and  deptId>0">
+                dept_id = ( SELECT id FROM tb_dept WHERE dept_name = #{deptName} ),
+            </if>
+            <if test="status!=null">
+                status =#{status}
+            </if>
         </set>
         where id = #{id}
     </update>
