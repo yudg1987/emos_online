@@ -4,13 +4,25 @@
 }
 .info_list{
 	flex: 1;
-	/* #ifndef APP-NVUE */
 	display: flex;
-	/* #endif */
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+	//justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	font-size: 28rpx;
+}
+
+.photo{
+	width: 300rpx;
+	height: 300rpx;
+	border-radius: 120rpx;
+	display: block;
+	border: 1px solid #ec7872;
+}
+.label{
+	color: #3b4144;
+	overflow: hidden;
+	padding-left: 5rpx;
 }
 .icon {
             width: 40rpx;
@@ -22,7 +34,7 @@
     font-weight: bold;
     color: @background-color;
     border-left: solid 15rpx @background-color;
-    padding-left: 20rpx;
+    padding-left: 5rpx;
 }
 .list {
     .item {

@@ -2,10 +2,10 @@
 <template>
 	<view class="page">
 		<view class="info_list" @click="chooseImage">
-					<view>头像(点击更换)</view>
+					<view class="label">头像(点击更换)</view>
 					<view>
 						<!-- <view>头像</view> -->
-						<image :src="user.photo" mode="aspectFit"></image>
+						<image :src="user.photo" class="photo" mode="aspectFit"></image>
 						<uni-icons type="arrowright" size="5" color="#A4A4A4"></uni-icons>
 					</view>	
 		</view>
