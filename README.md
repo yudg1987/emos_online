@@ -53,6 +53,20 @@
 
 # 配置手册
 
+## centos单独安装开发环境
+### 安装Mongo 
+https://www.cnblogs.com/werr370/p/15439801.html  
+### rabbitMq安装：
+https://blog.csdn.net/u012430402/article/details/115474523
+### 人脸验证控制台 
+https://console.cloud.tencent.com/aiface/verify-face/stat 
+
+### 后端swagger地址
+http://124.221.192.169:996/emos-wx-api/swagger-ui.html
+
+##打卡获取风险等级查询本地宝
+http://m.hf.bendibao.com/news/yqdengji/?qu=蜀山区    风险等级查询本地宝  t_city配置city_name=合肥市 
+
 ## 开发环境的安装
 
 ### 0.brew 安装
