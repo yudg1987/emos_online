@@ -62,7 +62,7 @@ https://blog.csdn.net/u012430402/article/details/115474523
 https://console.cloud.tencent.com/aiface/verify-face/stat 
 
 ### 后端swagger地址
-http://10.198.75.60:996/emos-wx-api/swagger-ui.html
+http://124.221.192.169:996/emos-wx-api/swagger-ui.html
 
 ##打卡获取风险等级查询本地宝
 http://m.hf.bendibao.com/news/yqdengji/?qu=蜀山区    风险等级查询本地宝  t_city配置city_name=合肥市 
