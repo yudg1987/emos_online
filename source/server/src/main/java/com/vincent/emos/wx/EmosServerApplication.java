@@ -4,6 +4,8 @@ import cn.hutool.core.util.StrUtil;
 import com.vincent.emos.wx.db.dao.SysConfigDao;
 import com.vincent.emos.wx.db.pojo.SysConfig;
 import lombok.extern.slf4j.Slf4j;
+
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -21,6 +23,7 @@ import java.util.List;
 @ServletComponentScan
 @Slf4j
 @EnableAsync
+@MapperScan(basePackages = {"com.vincent.emos.wx.db.dao"})
 public class EmosServerApplication {
 
     @Autowired

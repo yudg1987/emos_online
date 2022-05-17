@@ -1,9 +1,23 @@
 <!-- 个人信息界面 -->
 <template>
 	<view class="page">
+		<view class="info_list" @click="chooseImage">
+					<view>头像(点击更换)</view>
+					<view>
+						<!-- <view>头像</view> -->
+						<image :src="user.photo" mode="aspectFit"></image>
+						<uni-icons type="arrowright" size="5" color="#A4A4A4"></uni-icons>
+					</view>	
+		</view>
 
 		<uni-list>
 			<!-- <uni-list-item title="头像" ></uni-list-item> -->
+			<!-- 显示圆形头像 -->
+			<!-- <uni-list-chat :avatar-circle="true" title="头像" :avatar="user.photo"></uni-list-chat> -->
+			<!-- <uni-list-item title="头像" @click="editName" link>
+					<image :src="user.photo" mode=""></image>
+					<uni-icons type="arrowright" size="18" color="#A4A4A4"></uni-icons>
+			</uni-list-item> -->
 			<uni-list-item title="姓名" @click="editName" link :rightText="user.name"></uni-list-item>
 			<uni-list-item title="部门" :rightText="user.deptName"></uni-list-item>
 			<uni-list-item title="手机" link @click="editTel" :rightText="user.tel"></uni-list-item>
@@ -55,9 +69,9 @@
 				that.ajax(that.url.searchUserSummary, 'GET', null, function(resp) {
 
 					that.user = resp.data.result
-					that.name = result.name
-					that.deptName = result.deptName
-					that.photo = result.photo
+					//that.name = result.name
+					//that.deptName = result.deptName
+					//that.photo = result.photo
 
 					console.log(that.photo)
 
@@ -109,7 +123,8 @@
 				that.ajax(that.url.updateUserInfo, 'POST', {
 					'name': that.user.name,
 					'tel': that.user.tel,
-					'email': that.user.email
+					'email': that.user.email,
+					'photo': that.user.photo
 				}, function(resp) {
 					
 					uni.showToast({
@@ -119,7 +134,50 @@
 					uni.hideLoading()
 					that.getUserInfo()
 				})
+			},
+            
+			chooseImage(){
+				console.log('chooseImage')
+				uni.chooseImage({
+					count:1,
+					sizeType: ['original', 'compressed'],
+					success: (res) => {
+						const tempFilePaths =res.tempFilePaths//图片临时数组
+						console.log(tempFilePaths)
+						uni.uploadFile({
+						//请求的url接口地址
+							//url:'http://192.168.3.195:8080/api/member/member/uploadHeadImage',
+							url: this.url.uploadFile,
+							//formData:{
+								//请求中接口额外的参数
+							//	id:'1385048044696801281'
+							//},
+							fileType:'image',//图片类型
+							filePath:tempFilePaths[0],//哪张图片
+							name:'file',//对应接口的文件名称
+							header:{//请求头
+								"Content-Type": "multipart/form-data",
+								"token": uni.getStorageSync('token')
+							},
+							success:(uploadFileRes)=>{
+							    //成功的回调
+								//一般用于重新获取数据渲染页面
+								//console.log(res1)
+								let imgData = JSON.parse(uploadFileRes.data)												
+								console.log('uploadFileRes.data='+uploadFileRes.data)
+								console.log('imgData.fullPath='+imgData.fullPath)
+								this.user.photo=imgData.fullPath
+								this.updateUserInfo()
+							},
+							fail:(err)=>{
+							//失败的回调
+								console.log(err)
+							}
+						})
+					}
+				})
 			}
+			
 		}
 	}
 </script>

@@ -64,7 +64,8 @@ Vue.prototype.url = {
 	dimissionEmployee:baseUrl+'/user/dimissionEmployee',
 	getLaw: 'https://t.lawsdata.com/api/compass-front/openApi/miniProgram/law',
 	getinstrument:'https://t.lawsdata.com/api/compass-front/openApi/miniProgram/instrument',
-	searchMyMeetingListByPage: baseUrl+'/meeting/searchMeetingListByPage'
+	searchMyMeetingListByPage: baseUrl+'/meeting/searchMeetingListByPage',
+	uploadFile: baseUrl+'/file/common/upload'
 }
 // 法律法规 案例查询咨询参数
 Vue.prototype.lawData = {

@@ -157,6 +157,9 @@ public class UserController {
         if (jsonObject.containsKey("dept_id")) {
             user.setDeptId(jsonObject.getInt("dept_id"));
         }
+        if (jsonObject.containsKey("photo")) {
+            user.setPhoto(jsonObject.getStr("photo"));
+        }
         userService.updateUserInfo(user);
         return R.ok();
 

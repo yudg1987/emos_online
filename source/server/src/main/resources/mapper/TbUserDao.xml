@@ -196,6 +196,9 @@
             <if test="status!=null">
                 status =#{status}
             </if>
+            <if test="photo!=null">
+                photo =#{photo}
+            </if>
         </set>
         where id = #{id}
     </update>

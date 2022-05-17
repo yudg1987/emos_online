@@ -29,7 +29,7 @@ public class SwaggerConfig {
 
         ApiInfoBuilder builder = new ApiInfoBuilder();
         builder.title("EMOS在线办公");
-        builder.description("Vincent制作");
+        builder.description("dgyu制作");
         docket.apiInfo(builder.build());
 
         ApiSelectorBuilder apiSelectorBuilder = docket.select();
