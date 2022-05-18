@@ -2,14 +2,13 @@
 <template>
 	<view class="page">
 		<view class="info_list" @click="chooseImage">
-					<view class="label">头像(点击更换)</view>
-					<view>
-						<!-- <view>头像</view> -->
-						<image :src="user.photo" class="photo" mode="aspectFit"></image>
-						<uni-icons type="arrowright" size="5" color="#A4A4A4"></uni-icons>
-					</view>	
-		</view>
-
+				<view class="label">头像(点击更换)</view>
+				<view>
+					<!-- <view>头像</view> -->
+					<image :src="user.photo" class="photo" mode="aspectFit"></image>
+					<uni-icons type="arrowright" size="5" color="#A4A4A4"></uni-icons>
+				</view>	
+		</view>        
 		<uni-list>
 			<!-- <uni-list-item title="头像" ></uni-list-item> -->
 			<!-- 显示圆形头像 -->
@@ -23,13 +22,18 @@
 			<uni-list-item title="手机" link @click="editTel" :rightText="user.tel"></uni-list-item>
 			<uni-list-item title="邮箱" :rightText="user.email"></uni-list-item>
 		</uni-list>
-
+        <view class="progress-box">
+			<!-- <progress :percent="percent" stroke-width="3" /> -->
+			<!-- <uni-icons type="close" class="progress-cancel" color="#dd524d"></uni-icons> -->
+			<!-- <progress :percent="percent" stroke-width="10"></progress> -->
+        </view>
 		<uni-popup ref="popupName" type="dialog">
 			<uni-popup-dialog mode="input" title="编辑名字" :value="user.name" placeholder="输入姓名" @confirm="finishName"></uni-popup-dialog>
 		</uni-popup>
 		<uni-popup ref="popupTel" type="dialog">
 			<uni-popup-dialog mode="input" title="编辑手机号" :value="user.tel" placeholder="输入手机号" @confirm="finishTel"></uni-popup-dialog>
 		</uni-popup>
+		<progress :percent="percent" stroke-width="10" v-if="showProgress"></progress>
 	</view>
 </template>
 
@@ -56,7 +60,9 @@
 					email: '',
 					photo: ''
 
-				}
+				},
+				showProgress:false,
+				percent : 0
 			}
 		},
 		onShow: function() {
@@ -142,11 +148,11 @@
 					count:1,
 					sizeType: ['original', 'compressed'],
 					success: (res) => {
+						this.showProgress=true
 						const tempFilePaths =res.tempFilePaths//图片临时数组
 						console.log(tempFilePaths)
-						uni.uploadFile({
-						//请求的url接口地址
-							//url:'http://192.168.3.195:8080/api/member/member/uploadHeadImage',
+						const uploadTask = uni.uploadFile({
+						    //请求的url接口地址
 							url: this.url.uploadFile,
 							//formData:{
 								//请求中接口额外的参数
@@ -167,13 +173,27 @@
 								console.log('uploadFileRes.data='+uploadFileRes.data)
 								console.log('imgData.fullPath='+imgData.fullPath)
 								this.user.photo=imgData.fullPath
-								this.updateUserInfo()
+								this.showProgress=false
+								this.updateUserInfo()								
 							},
 							fail:(err)=>{
 							//失败的回调
 								console.log(err)
+								this.showProgress=false
 							}
-						})
+						});
+						//上传进度的监听
+						uploadTask.onProgressUpdate((progress) => {
+									console.log('上传进度' + progress.progress);
+									console.log('已经上传的数据长度' + progress.totalBytesSent);
+									console.log('预期需要上传的数据总长度' + progress.totalBytesExpectedToSend);	
+									this.percent= progress.progress
+									console.log('percent='+this.percent)
+									// 测试条件，取消上传任务。
+									/* if (res.progress > 50) {
+										uploadTask.abort();
+									} */
+						});
 					}
 				})
 			}
@@ -184,4 +204,20 @@
 
 <style lang="less">
 	@import url('mine-info.less');
+	.progress-box {
+			display: flex;
+			height: 50rpx;
+			margin-bottom: 60rpx;
+	}
+	.uni-icon {
+		line-height: 1.5;
+	}
+
+	.progress-cancel {
+		margin-left: 40rpx;
+	}
+
+	.progress-control button {
+		margin-top: 20rpx;
+	}
 </style>
