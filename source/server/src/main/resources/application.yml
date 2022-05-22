@@ -114,5 +114,5 @@ fdfs:
     width: 150
     height: 150
   tracker-list:            #TrackerList参数,支持多个
-    - 106.13.6.212:22122
+    - 124.221.192.169:22122
   path: http://124.221.192.169:8888/
