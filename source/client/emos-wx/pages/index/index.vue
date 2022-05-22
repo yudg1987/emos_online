@@ -21,70 +21,70 @@
 				<image mode="widthFix" src="https://xxx/swiper-5.jpg"></image>
 			</swiper-item> -->
 			<swiper-item>
-				<image mode="aspectFit" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJruxaARh8KAAAdGOcemSk658.png"></image>
+				<image mode="aspectFit" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJruxaARh8KAAAdGOcemSk658.png"></image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="aspectFit" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJzcVCAUgDXAAoLKYtTQaA414.jpg"></image>
+				<image mode="aspectFit" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJzcVCAUgDXAAoLKYtTQaA414.jpg"></image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="aspectFit" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJzcy-AQGXQAAFAyBs42Io601.jpg"></image>
+				<image mode="aspectFit" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJzcy-AQGXQAAFAyBs42Io601.jpg"></image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="aspectFit" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJstzyAVw_mAAAdGOcemSk816.png"></image>
+				<image mode="aspectFit" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJstzyAVw_mAAAdGOcemSk816.png"></image>
 			</swiper-item>
 		</swiper>
 		<view v-show="unreadRows > 0" class="notify-container" @tap="toPage('消息提醒', '/pages/message_list/message_list')">
 			<view class="notify-title">
-				<image class="notify-icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2Yq6AIL7TAAAJsMRTHwA166_big.png" mode="widthFix"></image>
+				<image class="notify-icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2Yq6AIL7TAAAJsMRTHwA166_big.png" mode="widthFix"></image>
 				消息提醒
 			</view>
 			<view class="notify-content">
 				你有{{unreadRows}}条未读消息
 			</view>
-			<image class="more-icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YsCAYy1IAAAHpq6Bgg4618_big.png" mode="widthFix"></image>
+			<image class="more-icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YsCAYy1IAAAHpq6Bgg4618_big.png" mode="widthFix"></image>
 		</view>
 		<view class="nav-container">
 			<view class="nav-row">
 
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YMWAEhmdAAAJsCXhCqA337_big.png" mode="widthFix" @tap="toPage('在线签到','../checkin/checkin')"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YMWAEhmdAAAJsCXhCqA337_big.png" mode="widthFix" @tap="toPage('在线签到','../checkin/checkin')"></image>
 					<text class="name">在线签到</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YViAMSMwAAATG4dt2lw495_big.png" mode="widthFix"  @tap="toPage('员工健康','../healthy/healthy')"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YViAMSMwAAATG4dt2lw495_big.png" mode="widthFix"  @tap="toPage('员工健康','../healthy/healthy')"></image>
 					<text class="name">员工健康</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YXWATEZyAAAWzkBeCvg513_big.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YXWATEZyAAAWzkBeCvg513_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">在线请假</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YYiADeHxAAAQO8hZ4bQ882_big.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YYiADeHxAAAQO8hZ4bQ882_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">公务出差</text>
 				</view>
 			</view>
 
 			<view class="nav-row">
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YZ2AbP-xAAAKL9Sc5SQ513_big.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YZ2AbP-xAAAKL9Sc5SQ513_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">员工日报</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YbaASFx1AAATqm3m7Z8276_big.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YbaASFx1AAATqm3m7Z8276_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">我的加班</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YcmAef6fAAAUJ2DepAk367_big.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YcmAef6fAAAUJ2DepAk367_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">付款申请</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YduAOmEaAAAWuZlC9Yg319_big.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YduAOmEaAAAWuZlC9Yg319_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">费用报销</text>
 				</view>
 			</view>
@@ -93,38 +93,38 @@
 			<view class="nav-row">
 
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YfqANYRNAAAM1RrMcUc878_big.png" mode="widthFix" @tap="toPage('公告通知', '/pages/message_list/message_list')"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YfqANYRNAAAM1RrMcUc878_big.png" mode="widthFix" @tap="toPage('公告通知', '/pages/message_list/message_list')"></image>
 					<text class="name">公告通知</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2Yg2ALRCKAAAKmTdZ2hI217_big.png" mode="widthFix" @tap="toPage('在线审批','../approval_list/approval_list')"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2Yg2ALRCKAAAKmTdZ2hI217_big.png" mode="widthFix" @tap="toPage('在线审批','../approval_list/approval_list')"></image>
 					<text class="name">在线审批</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YiGARgdZAAAKbDy9n3E731_big.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YiGARgdZAAAKbDy9n3E731_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">物品领用</text>
 				</view>
 
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YjWAUqg1AAAL8UBBpBM103_big.png" mode="widthFix" @tap="notOpen()"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YjWAUqg1AAAL8UBBpBM103_big.png" mode="widthFix" @tap="notOpen()"></image>
 					<text class="name">采购审批</text>
 				</view>
 				<!-- <view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YfqANYRNAAAM1RrMcUc878_big.png" mode="widthFix" @tap="toPage('法律法规', '/pages/law/law')"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YfqANYRNAAAM1RrMcUc878_big.png" mode="widthFix" @tap="toPage('法律法规', '/pages/law/law')"></image>
 					<text class="name">法律法规</text>
 				</view> -->
 			</view>
 			
 			<view class="nav-row">
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YfqANYRNAAAM1RrMcUc878_big.png" mode="widthFix" @tap="toPage('法律法规', '/pages/law/law')"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YfqANYRNAAAM1RrMcUc878_big.png" mode="widthFix" @tap="toPage('法律法规', '/pages/law/law')"></image>
 					<text class="name">法律法规</text>
 				</view>
 				
 				<view class="nav">
-					<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YiGARgdZAAAKbDy9n3E731_big.png" mode="widthFix" @tap="toPage('司法案例查询', '/pages/instrument/instrument')"></image>
+					<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YiGARgdZAAAKbDy9n3E731_big.png" mode="widthFix" @tap="toPage('司法案例查询', '/pages/instrument/instrument')"></image>
 					<text class="name">司法案例查询</text>
 				</view>
 			</view>
@@ -140,11 +140,11 @@
 					<text class="hours">时长：{{ one.hour == 0 ? 1 : one.hour }}小时</text>
 				</view>
 				<view class="row">
-					<image src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YtWAZpnYAAADAtk88go263_big.png" mode="widthFix" class="icon"></image>
+					<image src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YtWAZpnYAAADAtk88go263_big.png" mode="widthFix" class="icon"></image>
 					<text class="desc" space="emsp">日期：{{ one.date }} {{ one.start }}</text>
 				</view>
 				<view class="row">
-					<image src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2YumAPEXZAAAFlbvE_go826_big.png" mode="widthFix" class="icon"></image>
+					<image src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2YumAPEXZAAAFlbvE_go826_big.png" mode="widthFix" class="icon"></image>
 					<text class="desc">地点：{{ one.type == '线上会议' ? one.type : one.place }}</text>
 				</view>
 				<image :src="one.photo" class="photo"></image>

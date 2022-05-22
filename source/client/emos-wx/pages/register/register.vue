@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<image class="logo" src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2Zn-AZP2DAAC8JVYKhdI505_big.png" mode="widthFix"></image>
+		<image class="logo" src="http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2Zn-AZP2DAAC8JVYKhdI505_big.png" mode="widthFix"></image>
 		<view class="register-container">
 			<input class="register-code" type="text" maxlength="4" v-model="registerCode" placeholder="请输入您的邀请码" />
 			<view class="register-desc">管理员创建员工账号后，请向管理员获取注册邀请码</view>

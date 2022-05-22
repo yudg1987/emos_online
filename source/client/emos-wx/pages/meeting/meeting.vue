@@ -2,7 +2,7 @@
 	<view class="page" v-if="checkPermission(['ROOT', 'MEETING:INSERT', 'MEETING:UPDATE'])">
 		<view class="header">
 			<input type="text" class="title" v-model="title" placeholder="输入会议标题" placeholder-class="title-placeholder" />
-			<image src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZRiAdfBmAAAC2qwTLQk636_big.png" mode="widthFix" class="edit-icon"></image>
+			<image src="http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2ZRiAdfBmAAAC2qwTLQk636_big.png" mode="widthFix" class="edit-icon"></image>
 		</view>
 		<view class="attr">
 			<view class="list">
@@ -49,7 +49,7 @@
 					<text class="name">{{ one.name }}</text>
 				</view>
 				<view class="add">
-					<image src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZS2AYcFYAAAORT4NkP4100_big.png" mode="widthFix" class="add-btn" @tap="toMembersPage()" />
+					<image src="http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2ZS2AYcFYAAAORT4NkP4100_big.png" mode="widthFix" class="add-btn" @tap="toMembersPage()" />
 				</view>
 			</view>
 		</view>

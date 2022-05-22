@@ -106,16 +106,16 @@
 									that.state = resp.data.result
 									if (that.state == 1) {
 										that.risk = '低风险'
-										that.img = 'http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2ZKuAS1AmAAAdD3bnQnE728_big.png'
+										that.img = 'http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2ZKuAS1AmAAAdD3bnQnE728_big.png'
 									} else if (that.state == 2) {
 										that.risk = '中风险'
-										that.img = 'http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2ZMOAJxhsAAAdRGVU8Fg100_big.png'
+										that.img = 'http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2ZMOAJxhsAAAdRGVU8Fg100_big.png'
 									} else if (that.state == 3) {
 										that.risk = '高风险'
-										that.img = 'http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZNaARF2lAAAcf3TVrAY520_big.png'
+										that.img = 'http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2ZNaARF2lAAAcf3TVrAY520_big.png'
 									} else {
 										that.risk = '未知风险'
-										that.img = 'http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2ZKuAS1AmAAAdD3bnQnE728_big.png'
+										that.img = 'http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2ZKuAS1AmAAAdD3bnQnE728_big.png'
 									}
 
 									uni.hideLoading()

@@ -3,7 +3,7 @@
 		<view class="list">
 			<view class="item" v-for="one in list" :key="one.id" @longpress="deleteRole(one.id, one.roleName)" @tap="toRolePage(one.id,one.roleName)">
 				<text class="key">{{ one.roleName }}</text>
-				<image src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZqGAX0WUAAAHpq6Bgg4726_big.png" mode="widthFix" class="icon"></image>
+				<image src="http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2ZqGAX0WUAAAHpq6Bgg4726_big.png" mode="widthFix" class="icon"></image>
 			</view>
 		</view>
 		<button class="btn" @tap="insertRole" v-if="checkPermission(['ROOT', 'ROLE:INSERT'])">添加</button>

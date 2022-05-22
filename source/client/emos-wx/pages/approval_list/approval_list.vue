@@ -46,7 +46,7 @@
 						<view class="desc">（终审）</view>
 					</block>
 					<block v-if="one.processStatus == '未结束'">
-						<image src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2Y1aARZ2CAAAJJIQ6ZAk862_big.png" mode="widthFix" class="icon"></image>
+						<image src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2Y1aARZ2CAAAJJIQ6ZAk862_big.png" mode="widthFix" class="icon"></image>
 						<view class="desc">审批进行中</view>
 					</block>
 				</view>

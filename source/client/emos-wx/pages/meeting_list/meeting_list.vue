@@ -1,8 +1,8 @@
 <template>
 	<view class="page">
-		<image src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZVGASd5jAADYcT-rdME478_big.jpg" mode="widthFix" class="logo"></image>
+		<image src="http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2ZVGASd5jAADYcT-rdME478_big.jpg" mode="widthFix" class="logo"></image>
 		<view class="add" v-if="checkPermission(['ROOT','MEETING:INSERT'])" @tap="toMeetingDetail(null,'insert')">
-			<image src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZXmAGZ5NAAAFLVIPBRs961_big.png" mode="widthFix" class="icon"></image>
+			<image src="http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2ZXmAGZ5NAAAFLVIPBRs961_big.png" mode="widthFix" class="icon"></image>
 			<text>创建会议</text>
 		</view>
 		<view v-for="one in list" :key="one.date">
@@ -10,8 +10,8 @@
 			<view class="item" v-for="meeting in one.list" :key="meeting.id" @longpress="deleteById(meeting.id,meeting.date,meeting.start)">
 				<view class="header">
 					<view class="left">
-						<image v-if="meeting.type == '线上会议'" src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZZqALq4oAAAFhumzjVw616_big.png" mode="widthFix" class="icon"></image>
-						<image v-if="meeting.type == '线下会议'" src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZeKAEXY3AAAJEIBBceY668_big.png" mode="widthFix" class="icon"></image>
+						<image v-if="meeting.type == '线上会议'" src="http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2ZZqALq4oAAAFhumzjVw616_big.png" mode="widthFix" class="icon"></image>
+						<image v-if="meeting.type == '线下会议'" src="http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2ZeKAEXY3AAAJEIBBceY668_big.png" mode="widthFix" class="icon"></image>
 						<text>{{ meeting.type }}</text>
 						<text :class="meeting.status == '未开始' ? 'blue' : 'red'">（{{ meeting.status }}）</text>
 					</view>
@@ -23,15 +23,15 @@
 					<view class="title">{{ meeting.title }}</view>
 					<view class="attr">
 						<view class="timer">
-							<image src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2Zg2AIpcvAAAPGoa0fGk507_big.png" mode="widthFix" class="icon"></image>
+							<image src="http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2Zg2AIpcvAAAPGoa0fGk507_big.png" mode="widthFix" class="icon"></image>
 							<text>{{ meeting.start }} ~ {{ meeting.end }}</text>
 						</view>
 						<view class="creator">
-							<image src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2ZimAVwhMAAAO67ASu2Y623_big.png" mode="widthFix" class="icon"></image>
+							<image src="http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2ZimAVwhMAAAO67ASu2Y623_big.png" mode="widthFix" class="icon"></image>
 							<text>{{ meeting.name }}</text>
 						</view>
 						<view class="place" v-if="meeting.type == '线下会议'">
-							<image src="http://106.13.6.212:8888/group1/M00/00/01/wKgABGJ2Zj6AA52CAAAE7cTCVxo353_big.png" mode="widthFix" class="icon"></image>
+							<image src="http://124.221.192.169:8888/group1/M00/00/01/wKgABGJ2Zj6AA52CAAAE7cTCVxo353_big.png" mode="widthFix" class="icon"></image>
 							<text>{{ meeting.place }}</text>
 						</view>
 					</view>

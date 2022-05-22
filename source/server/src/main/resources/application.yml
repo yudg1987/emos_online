@@ -32,7 +32,7 @@ spring:
 
   redis:
     database: 0
-    host: 106.13.6.212
+    host: 124.221.192.169
     port: 6379
     password: 123456
     jedis:
@@ -44,7 +44,7 @@ spring:
 
   data:
     mongodb:
-      host: 106.13.6.212
+      host: 124.221.192.169
       port: 27017
       database: admin
       authentication-database: admin
@@ -52,7 +52,7 @@ spring:
       password: emos
 
   rabbitmq:
-    host: 106.13.6.212
+    host: 124.221.192.169
     port: 5672
     username: guest
     password: guest
@@ -115,4 +115,4 @@ fdfs:
     height: 150
   tracker-list:            #TrackerList参数,支持多个
     - 106.13.6.212:22122
-  path: http://106.13.6.212:8888/
+  path: http://124.221.192.169:8888/

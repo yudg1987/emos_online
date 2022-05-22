@@ -2,7 +2,7 @@
 	<view class="page">
 		<view class="head">
 			<view class="search"@click="search"> 
-				<image class="icon" src="http://106.13.6.212:8888/group1/M00/00/00/wKgABGJ2ZCGAcnDvAAAHfnUq6c4908_big.png" mode="widthFix"></image>
+				<image class="icon" src="http://124.221.192.169:8888/group1/M00/00/00/wKgABGJ2ZCGAcnDvAAAHfnUq6c4908_big.png" mode="widthFix"></image>
 				<view class="search-word">搜索</view>
 			</view>
 		</view>
